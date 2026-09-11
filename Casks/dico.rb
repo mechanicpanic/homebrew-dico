@@ -1,6 +1,6 @@
 cask "dico" do
-  version "1.0.2"
-  sha256 "2d670a2380fe3cd9667dae9158209d44eeb25b6f516da11ed16e2c4877ca9ad9"
+  version "1.0.3"
+  sha256 "31418d327071d22f15333351a77b84baa0a7caedbd361e731c84b73918377f7b"
 
   url "https://github.com/mechanicpanic/dico/releases/download/v#{version}/Dico-#{version}.zip"
   name "Dico"
@@ -12,7 +12,7 @@ cask "dico" do
     strategy :github_latest
   end
 
-  depends_on macos: :sonoma
+  depends_on macos: ">= :sonoma"
 
   app "Dico.app"
   binary "#{appdir}/Dico.app/Contents/Resources/bin/dico"
@@ -23,13 +23,13 @@ cask "dico" do
     run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Dico.app"]
   end
 
+  caveats <<~EOS
+    Press ⌥D anywhere to open the panel.
+  EOS
+
   zap trash: [
     "~/.dico",
     "~/.dico_config.json",
     "~/Library/Preferences/fr.dico.popup.plist",
   ]
-
-  caveats <<~EOS
-    Press ⌥D anywhere to open the panel.
-  EOS
 end
