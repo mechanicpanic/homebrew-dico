@@ -19,10 +19,8 @@ cask "dico" do
 
   # Signed ad-hoc (no Developer ID): clear the quarantine flag Homebrew set on
   # the download, so the first launch is not blocked by Gatekeeper.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Dico.app"],
-                   sudo: false
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Dico.app"]
   end
 
   zap trash: [
