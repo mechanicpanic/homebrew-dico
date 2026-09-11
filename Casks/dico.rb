@@ -1,6 +1,6 @@
 cask "dico" do
-  version "1.0.3"
-  sha256 "31418d327071d22f15333351a77b84baa0a7caedbd361e731c84b73918377f7b"
+  version "1.0.4"
+  sha256 "d465c3d7d7fb901255d561322f357022b272c2c4efcee58506e99732a73b800a"
 
   url "https://github.com/mechanicpanic/dico/releases/download/v#{version}/Dico-#{version}.zip"
   name "Dico"
